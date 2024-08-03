@@ -2,7 +2,6 @@ import React from "react";
 import {usePopularMoviesQuery} from "../../../../hooks/usePopularMovies";
 import {Alert} from "bootstrap";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
-import { responsive } from "../../../../constants/sliderResp";
 import {responsive} from "../../../../constants/responsive"
 
 
