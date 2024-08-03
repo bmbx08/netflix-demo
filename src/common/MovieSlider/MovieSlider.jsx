@@ -1,12 +1,14 @@
 import React from "react";
-import "react-multi-carousel/lib/styles.css";
 import "./MovieSlider.style.css";
-import MovieCard from "../MovieCard/MovieCard";
 import { Carousel } from "bootstrap";
+import "react-multi-carousel/lib/styles.css";
+
+import MovieCard from "../MovieCard/MovieCard";
 
 
+const MovieSlider = (props) => {
+  let {title,movies, responsive} = props;
 
-const MovieSlider = ({title, movies, responsive}) => {
   return (
     <div>
       <h3>{title}</h3>
@@ -15,7 +17,7 @@ const MovieSlider = ({title, movies, responsive}) => {
         centerMode={true}
         itemClass="movie-slider p-1"
         containerClass="carousel-container"
-        responsive={responsive}
+        responsive={props?.responsive}
       >
         {movies?.results.map((movie, index) => (
           <MovieCard movie={movie} key={index} />
