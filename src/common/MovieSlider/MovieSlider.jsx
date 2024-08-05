@@ -1,6 +1,6 @@
 import React from "react";
 import "./MovieSlider.style.css";
-import { Carousel } from "bootstrap";
+import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
 import MovieCard from "../MovieCard/MovieCard";
@@ -17,7 +17,7 @@ const MovieSlider = ({title,movies, responsive}) => {
         containerClass="carousel-container"
         responsive={responsive}
       >
-        {movies?.results.map((movie, index) => (
+        {movies.map((movie, index) => (
           <MovieCard movie={movie} key={index} />
         ))}
       </Carousel>
