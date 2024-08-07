@@ -1,18 +1,19 @@
 import React from "react";
 import { useUpcomingMoviesQuery } from "../../../../hooks/useUpcomingMovies";
-import {Alert} from "bootstrap";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 import { responsive } from "../../../../constants/responsive";
+import LoadingSpinner from "../../../../common/Loading/LoadingSpinner";
+import ErrorMessage from "../../../../common/Loading/ErrorMessage";
 
 const UpcomingMovieSlide = () => {
     const {data, isLoading, isError, error} = useUpcomingMoviesQuery();
 console.log(data)
 
     if (isLoading) {
-      return <h1>Loading...</h1>;
+      return <LoadingSpinner/>;
     }
     if (isError) {
-      return <Alert variant="danger">{error.message}</Alert>;
+      return <ErrorMessage/>;
     }
   
     return (

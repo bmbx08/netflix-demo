@@ -8,18 +8,18 @@
     color:white;
 }
 
-.title-section{
+.not-found .title-section{
     margin-bottom: 2em;
 }
 
-h1,h2,h4,.description-section{
+.not-found h1,h2,h4,.description-section{
     text-align: center;
 }
 
-h1{
+.not-found h1{
     font-weight: 400
 }
 
-.home-button{
+.not-found .home-button{
     margin-top: 1em;
 }

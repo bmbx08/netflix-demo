@@ -1,0 +1,6 @@
+.movie-poster{
+    width:220px;
+    height:330px;
+    background-size: cover;
+    transition: 0.5s;
+}

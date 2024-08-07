@@ -3,6 +3,7 @@ import Banner from './components/Banner/Banner'
 import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSlide'
 import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide'
 import TopRatedMovieSlide from './components/TopRatedMovieSlide/TopRatedMovieSlide'
+import LoadingSpinner from '../../common/Loading/LoadingSpinner'
 
 //1. 배너 -> popular영화 중 첫 번째 아이템 보여주기
 //2. popular movie

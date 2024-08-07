@@ -1,0 +1,8 @@
+.review-box{
+    border:1px solid red;
+}
+
+.author-name{
+    font-weight:bold;
+    margin-right: 1em;
+}

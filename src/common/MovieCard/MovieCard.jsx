@@ -2,11 +2,13 @@ import React from "react";
 import {Badge} from "react-bootstrap";
 import "./MovieCard.style.css"
 import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({movie}) => {
 
   const {data:genreData}=useMovieGenreQuery(); //data변수를 genreData로 재정의
-  console.log("genre data", genreData); //Moviecard마다 genre api를 호출해도, 실질적으로는 한번만 호출된다(reactquery기능)
+  // console.log("genre data", genreData); //Moviecard마다 genre api를 호출해도, 실질적으로는 한번만 호출된다(reactquery기능)
+  const navigate=useNavigate();
 
   const showGenre = (genreIdList)=>{
     if(!genreData) return [] //장르 데이터가 없으면 아무것도 보여주지 않음
@@ -18,6 +20,10 @@ const MovieCard = ({movie}) => {
     return genreNameList
   }
 
+  const goToDetailPage=()=>{
+    console.log(movie.id);
+    navigate(`/movies/${movie.id}`);
+  }
 
   return (
     <div
@@ -28,12 +34,13 @@ const MovieCard = ({movie}) => {
           ")",
       }}
       className="movie-card"
+      onClick={goToDetailPage}
     >
       <div className="overlay">
         <h1>{movie.title}</h1>
         <div className="genre-section">
-          {showGenre(movie.genre_ids).map((id) => ( //showGenre함수로 장르 id를 문자로 변환
-            <Badge bg="danger">{id}</Badge>
+          {showGenre(movie.genre_ids).map((id,index) => ( //showGenre함수로 장르 id를 문자로 변환
+            <Badge bg="danger" key={index}>{id}</Badge>
           ))}
         </div>
         
