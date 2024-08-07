@@ -19,6 +19,14 @@ const AppLayout = () => {
     setKeyword("");
   };
 
+  const navigateToHome=()=>{
+    navigate(`/`)
+  }
+
+  const navigateToMovies=()=>{
+    navigate(`/movies`)
+  }
+
   return (
     <div>
       <Navbar bg="black" data-bs-theme="dark" expand="lg">
@@ -33,8 +41,8 @@ const AppLayout = () => {
               style={{maxHeight: "100px"}}
               navbarScroll
             >
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/movies">Movies</Nav.Link>
+              <Nav.Link onClick={navigateToHome}>Home</Nav.Link>
+              <Nav.Link onClick={navigateToMovies}>Movies</Nav.Link>
             </Nav>
             <Form className="d-flex" onSubmit={searchByKeyword}>
               <Form.Control
