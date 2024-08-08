@@ -7,7 +7,7 @@ const fetchMovieDetail=(id)=>{
     return api.get(`/movie/${id}`)
 }
 
-export const useMovieDetailQuery=({id})=>{
+export const useMovieDetailQuery=(id)=>{
     return useQuery({
         queryKey:["movie-detail",id],
         queryFn: ()=>fetchMovieDetail(id),

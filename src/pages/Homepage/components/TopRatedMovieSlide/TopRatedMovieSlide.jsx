@@ -12,7 +12,7 @@ const TopRatedMovieSlide = () => {
         return <LoadingSpinner/>;
     }
     if(isError){
-        return <ErrorMessage/>;
+        return <ErrorMessage error={error}/>;
     }
   return (
     <MovieSlider title="Top Rated Movies" movies={data.results} responsive={responsive}/>

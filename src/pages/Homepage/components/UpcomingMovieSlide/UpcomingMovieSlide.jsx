@@ -13,7 +13,7 @@ console.log(data)
       return <LoadingSpinner/>;
     }
     if (isError) {
-      return <ErrorMessage/>;
+      return <ErrorMessage error={error}/>;
     }
   
     return (

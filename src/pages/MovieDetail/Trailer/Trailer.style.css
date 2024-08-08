@@ -1,0 +1,13 @@
+.modal-title{
+    color:white;
+    font-weight:600;
+    text-align: center;
+}
+
+.modal-content{
+    background-color:#212529;
+}
+
+.modal-header{
+    justify-content: space-between;
+}

@@ -17,8 +17,10 @@
     overflow-wrap:break-word;
     display:flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    padding:15px;
+    padding:1.5em;
+    position:absolute;
 }
 
 .overlay:hover{
@@ -30,6 +32,23 @@
     z-index:2;
 }
 
+.movie-title{
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.push-up{
+    position:relative;
+    bottom:0.15em;
+}
+
+.age-restriction{
+    position: absolute;
+    top:0.5em;
+    right:0.5em;
+}
+
 .genre-section{
-    display:flex;
+    display:block;
+    text-align:center;
 }

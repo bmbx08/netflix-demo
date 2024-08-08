@@ -29,10 +29,10 @@ const MoviePage = () => {
   };
 
   if (isLoading) {
-    return <LoadingSpinner/>;
+    return <LoadingSpinner version="version1"/>;
   }
   if (isError) {
-    return <ErrorMessage/>;
+    return <ErrorMessage error={error}/>;
   }
 
   return (

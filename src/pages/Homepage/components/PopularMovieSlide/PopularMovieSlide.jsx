@@ -14,7 +14,7 @@ const PopularMovieSlide = () => {
 
     
     if (isLoading) {
-      return <LoadingSpinner version="version1"/>
+      return <LoadingSpinner/>
     }
     if (isError) {
       return <ErrorMessage error={error}/>;

@@ -11,11 +11,12 @@ const MovieSlider = ({title,movies, responsive}) => {
     <div>
       <h3>{title}</h3>
       <Carousel
-        infinity={true}
+        infinite={false}
         centerMode={true}
         itemClass="movie-slider p-1"
         containerClass="carousel-container"
         responsive={responsive}
+        showDots={true}
       >
         {movies.map((movie, index) => (
           <MovieCard movie={movie} key={index} />

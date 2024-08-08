@@ -13,7 +13,7 @@ const RecommendSection = ({movie_id}) => {
     return <LoadingSpinner/>;
   }
   if (isError) {
-    return <ErrorMessage/>;
+    return <ErrorMessage error={error}/>;
   }
   return <div>
     <MovieSlider title="Recommendations" movies={data.results} responsive={responsive}/>

@@ -6,7 +6,7 @@ const LoadingSpinner = ({version}) => {
     
   if (version=="version1"){
     return (
-        <div className="spinner-section">
+        <div className="spinner-section v1">
           <PacmanLoader
             color="white"
             //   loading={loading}
@@ -20,11 +20,11 @@ const LoadingSpinner = ({version}) => {
     
   if (version=="version2"){
     return (
-        <div className="spinner-section">
+        <div className="spinner-section v2">
           <ClimbingBoxLoader
             color="white"
             //   loading={loading}
-            size={50}
+            size={40}
             aria-label="Loading Spinner"
             data-testid="loader"
           />
@@ -33,7 +33,7 @@ const LoadingSpinner = ({version}) => {
   }
     
   return (
-    <div className="spinner-section">
+    <div className="spinner-section common">
       <RingLoader
         color="white"
         //   loading={loading}
