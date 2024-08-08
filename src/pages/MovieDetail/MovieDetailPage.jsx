@@ -6,6 +6,7 @@ import RecommendSection from "./RecommendSection/RecommendSection";
 import DetailSection from "./DetailSection/DetailSection";
 import Trailer from "./Trailer/Trailer";
 import BehindScenes from "./Trailer2/BehindScenes";
+import Bloopers from "./Trailer3/Bloopers";
 
 const MovieDetailPage = () => {
   let {id} = useParams();
@@ -15,6 +16,7 @@ const MovieDetailPage = () => {
       <DetailSection movie_id={id} />
       <Trailer movie_id={id}/>
       <BehindScenes movie_id={id}/>
+      <Bloopers movie_id={id}/>
       <ReviewSection movie_id={id} />
       <RecommendSection movie_id={id} />
     </div>

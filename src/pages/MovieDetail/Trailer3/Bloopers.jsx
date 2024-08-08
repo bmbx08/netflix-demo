@@ -6,12 +6,11 @@ import ErrorMessage from "../../../common/Loading/ErrorMessage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFilm} from "@fortawesome/free-solid-svg-icons";
-import {faVideo} from "@fortawesome/free-solid-svg-icons";
+import {faFaceLaughSquint} from "@fortawesome/free-solid-svg-icons";
 import YouTube from "react-youtube";
-import "./Trailer.style.css";
+import "./../Trailer/Trailer.style.css";
 
-const Trailer = ({movie_id}) => {
+const Bloopers = ({movie_id}) => {
   const {data: video, isLoading, isError, error} = useMovieVideoQuery(movie_id);
   console.log("video-data", video);
 
@@ -28,10 +27,10 @@ const Trailer = ({movie_id}) => {
   }
   return (
     <>
-      {video?.some((vid) => vid.type === "Trailer") ? (
+      {video?.some((vid) => vid.type === "Bloopers") ? (
         <Button variant="outline-primary" onClick={handleShow}>
-          <FontAwesomeIcon icon={faFilm} className="me-1" />
-          Watch Trailer
+          <FontAwesomeIcon icon={faFaceLaughSquint} className="me-1" />
+          Bloopers
         </Button>
       ) : (
         ""
@@ -50,8 +49,8 @@ const Trailer = ({movie_id}) => {
       >
         <Modal.Header className="d-flex modal-header">
           <Modal.Title className="modal-title">
-            {video?.some((vid) => vid.type === "Trailer")
-              ? video?.find((video) => video.type === "Trailer").type
+            {video?.some((vid) => vid.type === "Bloopers")
+              ? video?.find((video) => video.type === "Bloopers").type
               : "No Video!"}
           </Modal.Title>
           <Button variant="secondary" onClick={handleClose}>
@@ -60,9 +59,9 @@ const Trailer = ({movie_id}) => {
         </Modal.Header>
 
         <Modal.Body className="ps-4 ms-5">
-          {video?.some((vid) => vid.type === "Trailer") ? (
+          {video?.some((vid) => vid.type === "Bloopers") ? (
             <YouTube
-              videoId={video?.find((video) => video?.type === "Trailer").key}
+              videoId={video?.find((video) => video?.type === "Bloopers").key}
               className="video"
             />
           ) : (
@@ -76,4 +75,4 @@ const Trailer = ({movie_id}) => {
   );
 };
 
-export default Trailer;
+export default Bloopers;

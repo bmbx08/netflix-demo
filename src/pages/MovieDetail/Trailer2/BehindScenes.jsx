@@ -6,7 +6,6 @@ import ErrorMessage from "../../../common/Loading/ErrorMessage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFilm} from "@fortawesome/free-solid-svg-icons";
 import {faVideo} from "@fortawesome/free-solid-svg-icons";
 import YouTube from "react-youtube";
 import "../Trailer/Trailer.style.css";
