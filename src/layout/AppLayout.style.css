@@ -1,3 +1,12 @@
 .nav-link{
     color:white;
 }
+
+.site-logo{
+    cursor: pointer;
+}
+
+.site-logo:hover{
+    transform:scale(1.1);
+    transition: 0.3s ease-in-out;
+}

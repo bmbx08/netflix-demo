@@ -12,14 +12,10 @@
     margin-bottom: 2em;
 }
 
-.not-found h1,h2,h4,.description-section{
+.not-found,.description-section{
     text-align: center;
 }
 
-.not-found h1{
-    font-weight: 400
-}
-
-.not-found .home-button{
+.home-button{
     margin-top: 1em;
 }

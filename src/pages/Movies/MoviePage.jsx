@@ -3,11 +3,12 @@ import {useSearchMovieQuery} from "../../hooks/useSearchMovie";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import {Col, Container, Row} from "react-bootstrap";
 import MovieCard from "../../common/MovieCard/MovieCard";
-import ReactPaginate from "react-paginate";
 import LoadingSpinner from "../../common/Loading/LoadingSpinner";
 import ErrorMessage from "../../common/Loading/ErrorMessage";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import Pagination from "./components/Pagination/Pagination";
+import PopularDropdown from "./components/DropdownSection/PopularDropdown";
+import GenreDropdown from "./components/DropdownSection/GenreDropdown";
+import {useMovieGenreQuery} from "../../hooks/useMovieGenre";
 
 //경로 2가지
 //1.nav바에서 클랙해서 온 경우 -> popuarMovie 보여주기
@@ -17,6 +18,11 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 //page state 만들기
 //페이지네이션 클릭할때마다 page 바꿔주기
 //page 값이 바뀔 때 마다 useSearchMovie에 page까지 넣어서 fetch해주기
+
+// Genres=[
+//   "Action","Adventure","Animation","Comedy"
+// ]
+
 const MoviePage = () => {
   const navigate = useNavigate();
 
@@ -24,15 +30,19 @@ const MoviePage = () => {
   const [page, setPage] = useState(1);
   const keyword = query.get("q");
   const popKeyword = query.get("sort_popularity");
+  const genreKeyword = query.get("sort_genre");
   console.log(keyword);
   console.log(popKeyword);
 
-  const {data, isLoading, isError, error} = useSearchMovieQuery({
+  let {data, isLoading, isError, error} = useSearchMovieQuery({
     keyword,
     page,
   });
+  const {data: genreData} = useMovieGenreQuery();
   console.log("search-data", data);
+
   if (popKeyword === "most") {
+    //영화 데이터를 가장 인기부터 정렬
     data?.results.sort(function (a, b) {
       if (a.popularity < b.popularity) {
         return 1;
@@ -44,7 +54,9 @@ const MoviePage = () => {
     });
     console.log("inc popularity data", data?.results);
   }
+
   if (popKeyword === "least") {
+    //영화 데이터를 가장 인기 없음 부터 정렬
     data?.results.sort(function (a, b) {
       if (a.popularity > b.popularity) {
         return 1;
@@ -57,17 +69,25 @@ const MoviePage = () => {
     console.log("dec popularity data", data?.results);
   }
 
+  //쿼리 단어랑 장르데이터에서 같은 이름의 id값을 가져온다.
+  //data중 같은 genre id를 가진 movie들을 data에 다시 넣는다
+  //같은 genreid를 가진 movie들을 찾아 배열에 담는다.
+  if (genreKeyword !== null) {
+    let genreObj = genreData?.find((genre) => genre?.name === genreKeyword);
+    let genreId = genreObj?.id;
+    console.log(genreId);
+    console.log(data);
+      data.results=data?.results.filter((movie) => {
+        return movie?.genre_ids.some((genre) => genre === genreId);
+      });
+      console.log("genre sorted data", data);
+  }
+
   const handlePageClick = ({selected}) => {
-    setPage(selected + 1); //질문: page state가 바뀔때마다 api호출이 왜 되는지?
+    setPage(selected + 1); //질문: page state가 바뀔때마다 api호출이 왜 되는지? -> state가 바뀔때마다 rerender되기 때문
   };
 
-  const sortByLeastPopular = () => {
-    navigate(`/movies/?q=${keyword}&sort_popularity=least`);
-  };
-
-  const sortByMostPopular = () => {
-    navigate(`/movies/?q=${keyword}&sort_popularity=most`);
-  };
+  console.log(data);
 
   if (isLoading) {
     return <LoadingSpinner version="version1" />;
@@ -81,14 +101,12 @@ const MoviePage = () => {
       <Row>
         <Col lg={4} xs={12}>
           {/* 필터 */}
-          <DropdownButton id="dropdown-basic-button" title="Sort By..">
-            <Dropdown.Item onClick={sortByMostPopular}>
-              Most Popular
-            </Dropdown.Item>
-            <Dropdown.Item onClick={sortByLeastPopular}>
-              Least Popular
-            </Dropdown.Item>
-          </DropdownButton>
+          <h2>Sort By..</h2>
+          <div>
+            <PopularDropdown keyword={keyword}/>
+            <GenreDropdown keyword={keyword} />
+          </div>
+          
         </Col>
         <Col lg={8} xs={12}>
           <Row>
@@ -98,26 +116,10 @@ const MoviePage = () => {
               </Col>
             ))}
           </Row>
-          <ReactPaginate
-            nextLabel="next >"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
-            pageCount={data?.total_pages} //전체 페이지 몇개인지
-            previousLabel="< previous"
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName="page-item"
-            previousLinkClassName="page-link"
-            nextClassName="page-item"
-            nextLinkClassName="page-link"
-            breakLabel="..."
-            breakClassName="page-item"
-            breakLinkClassName="page-link"
-            containerClassName="pagination"
-            activeClassName="active"
-            renderOnZeroPageCount={null}
-            forcePage={page - 1}
+          <Pagination
+            handlePageClick={handlePageClick}
+            data={data}
+            page={page}
           />
         </Col>
       </Row>
@@ -126,3 +128,5 @@ const MoviePage = () => {
 };
 
 export default MoviePage;
+
+//아쉬운 점: 장르/인기별 정렬은 페이지마다만 정렬됨.

@@ -7,7 +7,7 @@ const NotFoundPage = () => {
     <div className='not-found'>
 
       <div className="title-section">
-        <h1>404 ERROR</h1>
+        <h1 className='not-found-title'>404 ERROR</h1>
         <h2>페이지를 찾을 수 없습니다.</h2>
       </div>
       <div className='description-section'>

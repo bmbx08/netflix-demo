@@ -1,6 +1,9 @@
-.movie-poster{
-    width:220px;
-    height:330px;
-    background-size: cover;
-    transition: 0.5s;
+.detail-page{
+    padding-left: 12em;
+    padding-right:12em;
+}
+
+.section-radio{
+    margin-top: 3em;
+    margin-bottom: 2em;
 }

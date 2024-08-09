@@ -31,7 +31,7 @@ const AppLayout = () => {
     <div>
       <Navbar bg="black" data-bs-theme="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">
+          <Navbar.Brand onClick={navigateToHome} className="site-logo">
             <img width="100px" src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-symbol.jpg" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

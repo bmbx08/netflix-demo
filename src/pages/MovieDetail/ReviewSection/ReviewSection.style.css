@@ -1,8 +1,64 @@
+.review-outer-container{
+    display:flex;
+    justify-content: center;
+}
+
+.review-outer-container.radio-1{
+    display:none;
+}
+
+.review-container{
+    width:1024px;
+}
+
 .review-box{
     border:1px solid red;
     padding:1em;
     border-radius: 25px;
 }
+
+.review-box.short{
+    height: 11em;
+}
+
+.review-box.long{
+    height: auto;
+}
+
+.review-first-line{
+    padding-bottom: 0.2em;
+}
+
+
+
+.content-outer-box{
+    height: auto;
+}
+
+
+.content-inner-box.short{
+    height: 4.8em;
+    overflow:hidden;
+}
+
+.content-inner-box.long{
+    height:auto;
+    overflow:auto;
+}
+
+.see-more-button{
+    color:rgba(211, 211, 211, 0.517);
+    font-size: 0.85em;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.see-more-button:hover{
+    cursor:pointer;
+    text-decoration: none;
+}
+
+
 
 .author-name{
     font-weight:bold;

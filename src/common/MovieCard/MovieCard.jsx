@@ -18,7 +18,6 @@ const MovieCard = ({movie}) => {
       const genreObj = genreData.find((genre) => genre.id === id); //영화 장르id가 genreData의 id들 중 일치하는 게 있다면, 장르 객체(id와 name보유)를 반환
       return genreObj.name;
     });
-
     return genreNameList;
   };
 

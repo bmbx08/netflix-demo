@@ -1,0 +1,31 @@
+.movie-poster{
+    width:250px;
+    height:370px;
+    background-size: cover;
+    transition: 0.5s;
+}
+
+.detail-genre{
+    margin-right: 0.5em;
+    margin-bottom: 2em;
+}
+
+.detail-score-section{
+    font-size: 1.1em;
+    padding-bottom: 2em;
+    border-bottom: 0.5px solid gray;
+}
+
+.detail-description-section{
+    border-bottom: 1.2px solid white;
+}
+
+.detail-extra-button{
+    margin-top: 0.8em;
+    margin-right: 0.5em;
+    width: 8em;
+}
+
+.extra-budget::before{
+    content: "$"
+}

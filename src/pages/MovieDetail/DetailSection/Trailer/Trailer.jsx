@@ -1,8 +1,8 @@
 import React from "react";
-import {useMovieVideoQuery} from "../../../hooks/MovieDetail/useMovieVideo";
 import {useState} from "react";
-import LoadingSpinner from "../../../common/Loading/LoadingSpinner";
-import ErrorMessage from "../../../common/Loading/ErrorMessage";
+import {useMovieVideoQuery} from "../../../../hooks/MovieDetail/useMovieVideo";
+import LoadingSpinner from "../../../../common/Loading/LoadingSpinner";
+import ErrorMessage from "../../../../common/Loading/ErrorMessage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ const Trailer = ({movie_id}) => {
   return (
     <>
       {video?.some((vid) => vid.type === "Trailer") ? (
-        <Button variant="outline-primary" onClick={handleShow}>
+        <Button variant="outline-primary" onClick={handleShow} className="video-button mt-2">
           <FontAwesomeIcon icon={faFilm} className="me-1" />
           Watch Trailer
         </Button>

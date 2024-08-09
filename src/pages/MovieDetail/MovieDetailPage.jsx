@@ -1,24 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 import {useParams} from "react-router-dom";
 import "./MovieDetailPage.style.css";
 import ReviewSection from "./ReviewSection/ReviewSection";
 import RecommendSection from "./RecommendSection/RecommendSection";
 import DetailSection from "./DetailSection/DetailSection";
-import Trailer from "./Trailer/Trailer";
-import BehindScenes from "./Trailer2/BehindScenes";
-import Bloopers from "./Trailer3/Bloopers";
+import { ButtonGroup, ToggleButton } from "react-bootstrap";
 
 const MovieDetailPage = () => {
   let {id} = useParams();
+  const [radioValue, setRadioValue] = useState("1");
+  const [componentState, setComponentState] = useState("radio-0");
 
+  const radios = [
+    {name: "Reviews", value: "1"},
+    {name: "Similar Movies", value: "2"},
+  ];
+
+  const toggleComponent = (e) => {
+    setRadioValue(e.currentTarget.value);
+    setComponentState(e.currentTarget.id);
+    console.log(e);
+  };
   return (
-    <div>
+    <div className="detail-page">
       <DetailSection movie_id={id} />
-      <Trailer movie_id={id}/>
-      <BehindScenes movie_id={id}/>
-      <Bloopers movie_id={id}/>
-      <ReviewSection movie_id={id} />
-      <RecommendSection movie_id={id} />
+      <div className="section-radio d-flex justify-content-center">
+        <ButtonGroup>
+          {radios.map((radio, idx) => (
+            <ToggleButton
+              key={idx}
+              id={`radio-${idx}`}
+              type="radio"
+              variant={"outline-danger"}
+              name="radio"
+              value={radio.value}
+              checked={radioValue === radio.value}
+              onChange={(e) => toggleComponent(e)}
+            >
+              {radio.name}
+            </ToggleButton>
+          ))}
+        </ButtonGroup>
+      </div>
+      <ReviewSection movie_id={id} componentState={componentState}/>
+      <RecommendSection movie_id={id} componentState={componentState}/>
     </div>
   );
 };
