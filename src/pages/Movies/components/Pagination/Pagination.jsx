@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
+import "./Pagination.style.css"
 
 const Pagination = ({handlePageClick,data,page}) => {
   return (
-    <div>
       <ReactPaginate
             nextLabel="next >"
             onPageChange={handlePageClick}
@@ -25,7 +25,6 @@ const Pagination = ({handlePageClick,data,page}) => {
             renderOnZeroPageCount={null}
             forcePage={page - 1}
           />
-    </div>
   )
 }
 

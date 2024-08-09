@@ -101,7 +101,7 @@ const MoviePage = () => {
       <Row>
         <Col lg={4} xs={12}>
           {/* 필터 */}
-          <h2>Sort By..</h2>
+          <h2 className="text-center">Sort By..</h2>
           <div>
             <PopularDropdown keyword={keyword}/>
             <GenreDropdown keyword={keyword} />
@@ -116,11 +116,14 @@ const MoviePage = () => {
               </Col>
             ))}
           </Row>
+          <div className="pagination-container">
           <Pagination
             handlePageClick={handlePageClick}
             data={data}
             page={page}
           />
+          </div>
+          
         </Col>
       </Row>
     </Container>
