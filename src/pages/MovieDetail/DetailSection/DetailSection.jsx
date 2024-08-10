@@ -25,7 +25,7 @@ const DetailSection = ({movie_id}) => {
   return (
     <div>
       <Row>
-        <Col lg={3} sm={12} className="d-flex flex-column align-items-center">
+        <Col lg={5} sm={12} className="d-flex flex-column align-items-center">
           <div className="text-center">
             <div
               style={{
@@ -43,8 +43,8 @@ const DetailSection = ({movie_id}) => {
             <Bloopers movie_id={movie_id} />
           </div>
         </Col>
-        <Col lg={9} sm={12} className="ps-5 pe-5">
-          <div className="detail-genre-section">
+        <Col lg={7} sm={12} className="ps-5 pe-5">
+          <div className="detail-genre-section mt-5">
             {data.genres.map(
               (
                 genre,
@@ -77,11 +77,11 @@ const DetailSection = ({movie_id}) => {
               )}
             </span>
           </div>
-          <div className="detail-description-section pt-3 pb-3">
+          <div className="detail-description-section pt-4 pb-4">
             <p>{data.overview}</p>
           </div>
           <div>
-            <div className="detail-extra-section">
+            <div className="detail-extra-section mt-4">
               <div>
                 <Badge bg="danger" className="detail-extra-button">
                   Budget

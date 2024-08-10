@@ -1,6 +1,6 @@
 .movie-poster{
-    width:235px;
-    height:350px;
+    width:320px;
+    height:500px;
     background-size: cover;
     transition: 0.5s;
 }
@@ -19,7 +19,7 @@
 
 .detail-score-section{
     font-size: 1.1em;
-    padding-bottom: 2em;
+    padding-bottom: 3em;
     border-bottom: 0.5px solid gray;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .detail-extra-button{
-    margin-top: 0.8em;
+    margin-top: 1em;
     margin-right: 0.5em;
     width: 8em;
 }
