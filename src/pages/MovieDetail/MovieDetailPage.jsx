@@ -5,6 +5,7 @@ import ReviewSection from "./ReviewSection/ReviewSection";
 import RecommendSection from "./RecommendSection/RecommendSection";
 import DetailSection from "./DetailSection/DetailSection";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
+import DetailBanner from "./DetailBanner/DetailBanner";
 
 const MovieDetailPage = () => {
   let {id} = useParams();
@@ -23,6 +24,7 @@ const MovieDetailPage = () => {
   };
   return (
     <div className="detail-page">
+      <DetailBanner movie_id={id}/>
       <DetailSection movie_id={id} />
       <div className="section-radio d-flex justify-content-center">
         <ButtonGroup>

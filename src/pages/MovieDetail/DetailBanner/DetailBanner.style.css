@@ -1,0 +1,20 @@
+.detail-banner{
+    height: 35vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.detail-banner:before{
+    content:'';
+    background:linear-gradient(to top, black,transparent);
+    position: absolute;
+    left:0;
+    height: 35vh;
+    width: 100%;
+}
+
+
+.banner-text-area>*{
+    z-index: 2;
+}

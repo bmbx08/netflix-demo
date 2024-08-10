@@ -5,7 +5,7 @@ import "./ReviewSection.style.css";
 import LoadingSpinner from "../../../common/Loading/LoadingSpinner";
 import ErrorMessage from "../../../common/Loading/ErrorMessage";
 import star from "../../../common/images/star.png";
-import { Button } from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 const ReviewSection = ({movie_id, componentState}) => {
   const [showMore, setShowMore] = useState(false);
@@ -25,7 +25,8 @@ const ReviewSection = ({movie_id, componentState}) => {
     return <ErrorMessage error={error} />;
   }
   return (
-    <div className={`review-outer-container ${componentState}`}>
+    <div>
+      <div className={`review-outer-container ${componentState}`}>
       <div className="review-container">
         <h1 className="text-center pb-2">Reviews</h1>
         {data?.results.map((review, index) => {
@@ -42,7 +43,16 @@ const ReviewSection = ({movie_id, componentState}) => {
 
                 <div className={`content-outer-box`}>
                   <div className={`content-inner-box`}>
-                    <ShowMore maxHeight={100} backgroundColor="black" classNameButtonDiv="show-more-button" styleButton={{backgroundColor: "gray", width:"12em", height:"3em"}}>
+                    <ShowMore
+                      maxHeight={100}
+                      backgroundColor="black"
+                      classNameButtonDiv="show-more-button"
+                      styleButton={{
+                        backgroundColor: "gray",
+                        width: "12em",
+                        height: "3em",
+                      }}
+                    >
                       <div>{review.content}</div>
                     </ShowMore>
                     {/* <div>
@@ -66,6 +76,8 @@ const ReviewSection = ({movie_id, componentState}) => {
         })}
       </div>
     </div>
+    </div>
+    
   );
 };
 
