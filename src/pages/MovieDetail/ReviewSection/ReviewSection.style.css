@@ -8,7 +8,7 @@
 }
 
 .review-container{
-    width:1024px;
+    width:auto;
 }
 
 .review-box{
@@ -18,7 +18,7 @@
 }
 
 .review-box.short{
-    height: 11em;
+    height: auto;
 }
 
 .review-box.long{
@@ -37,7 +37,7 @@
 
 
 .content-inner-box.short{
-    height: 4.8em;
+    /* height: 4.8em; */
     overflow:hidden;
 }
 
@@ -46,18 +46,23 @@
     overflow:auto;
 }
 
-.see-more-button{
-    color:rgba(211, 211, 211, 0.517);
+.show-more-button{
     font-size: 0.85em;
-    font-style: italic;
     text-decoration: underline;
 }
 
-.see-more-button:hover{
+.show-more-button:hover{
     cursor:pointer;
     text-decoration: none;
 }
 
+.see-more-button.short::before{
+    content:"더보기"
+}
+
+.see-more-button.long::before{
+    content:"접기"
+}
 
 
 .author-name{
